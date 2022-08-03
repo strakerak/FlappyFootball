@@ -9,9 +9,12 @@ public class SkinManager : MonoBehaviour
     // Start is called before the first frame update
     public SpriteRenderer sr;
     public List<Sprite> skins = new List<Sprite>();
-    private int selectedSkin = 0;
+    public static int selectedSkin = 0;
     public GameObject playerskin;
-
+    public void Start()
+    {
+        
+    }
     public void NextOption()
     {
         selectedSkin = selectedSkin + 1;
@@ -36,7 +39,12 @@ public class SkinManager : MonoBehaviour
 
     public void PlayGame()
     {
-        PrefabUtility.SaveAsPrefabAsset(playerskin, "Assets/selectedSkin.prefab");
+        //PrefabUtility.SaveAsPrefabAsset(playerskin, "Assets/selectedSkin.prefab");
         SceneManager.LoadScene("FlappyBird");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOver;
     public GameObject backButton;
     public Player player;
+    public List<Sprite> skins = new List<Sprite>();
 
     //BLOCK 4
     public GameObject selectedSkin;
@@ -34,7 +35,8 @@ public class GameManager : MonoBehaviour
     {
 
         //BLOCk 4
-        playerSprite = selectedSkin.GetComponent<SpriteRenderer>().sprite;
+        int index = SkinManager.selectedSkin;
+        playerSprite = skins[index];
         player.GetComponent<SpriteRenderer>().sprite = playerSprite;
         //END BLOCK 4
 

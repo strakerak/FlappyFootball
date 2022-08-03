@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
+    [SerializeField] private AudioSource scoreSound, deathSound;
+
     //BLOCK 2 ANIMATION STUFF
     private SpriteRenderer spriteRenderer;
     public Sprite[] sprites; // array of sprites
@@ -27,6 +29,8 @@ public class Player : MonoBehaviour
     {
         //InvokeRepeating(nameof(AnimateSprite),0.15f,0.15f);
     }
+
+
 
     //BLOCK 1
     private void Update()
@@ -57,10 +61,12 @@ public class Player : MonoBehaviour
         if(other.gameObject.tag=="Obstacle")
         {
             FindObjectOfType<GameManager>().GameOver();
+            deathSound.Play();
         }
         if(other.gameObject.tag=="Scoring")
         {
             FindObjectOfType<GameManager>().IncreaseScore();
+            scoreSound.Play();
         }
     }
 
